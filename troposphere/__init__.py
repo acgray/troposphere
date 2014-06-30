@@ -124,7 +124,7 @@ class BaseAWSObject(object):
     def JSONrepr(self):
         for k, (prop_type, required) in self.props.items():
             if required and k not in self.properties:
-                type = getattr(self, 'type', "<unknown type>")
+                type = getattr(self, 'type', str(self))
                 raise ValueError("Resource %s required in type %s" % (k, type))
         self.validate()
         # If no other properties are set, only return the Type.

@@ -20,7 +20,10 @@ class SourceBundle(AWSProperty):
 
 
 class ApplicationVersion(AWSProperty):
+    type = "AWS::ElasticBeanstalk::ApplicationVersion"
+
     props = {
+        'ApplicationName': (basestring, False),
         'Description': (basestring, False),
         'SourceBundle': (SourceBundle, False),
         'VersionLabel': (basestring, True),
@@ -36,7 +39,10 @@ class OptionSettings(AWSProperty):
 
 
 class ConfigurationTemplate(AWSProperty):
+    type = "AWS::ElasticBeanstalk::ConfigurationTemplate"
+
     props = {
+        'ApplicationName': (basestring, False),
         'TemplateName': (basestring, True),
         'Description': (basestring, False),
         'OptionSettings': (list, False),
@@ -49,7 +55,7 @@ class Application(AWSObject):
 
     props = {
         'ApplicationName': (basestring, False),
-        'ApplicationVersions': (list, True),
+        'ApplicationVersions': (list, False),
         'ConfigurationTemplates': (list, False),
         'Description': (basestring, False),
     }
