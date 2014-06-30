@@ -230,9 +230,7 @@ class RouteTable(AWSObject):
     }
 
 
-class SecurityGroupEgress(AWSObject):
-    type = "AWS::EC2::SecurityGroupEgress"
-
+class SecurityGroupEgress(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
@@ -251,9 +249,7 @@ class SecurityGroupEgress(AWSObject):
     }
 
 
-class SecurityGroupIngress(AWSObject):
-    type = "AWS::EC2::SecurityGroupIngress"
-
+class SecurityGroupIngress(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
         'FromPort': (network_port, False),
