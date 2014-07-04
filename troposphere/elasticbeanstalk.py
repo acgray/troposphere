@@ -42,7 +42,6 @@ class ConfigurationTemplate(AWSObject):
 
     props = {
         'ApplicationName': (basestring, False),
-        'TemplateName': (basestring, True),
         'Description': (basestring, False),
         'OptionSettings': (list, False),
         'SolutionStackName': (basestring, False),
